@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1005629199522",
+    "project_id": "authenticator-b2752",
+    "storage_bucket": "authenticator-b2752.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005629199522:android:458660fe7c5bd5453073fb",
+        "android_client_info": {
+          "package_name": "br.com.joao.almeida.authenticator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1005629199522-gb35n0kqsbjgoi74c8nvd3dcleh0eade.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7B62rL1mQx5tqBXrGvhRlSUhTRCLEf68"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1005629199522-gb35n0kqsbjgoi74c8nvd3dcleh0eade.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
