@@ -16,6 +16,13 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="191dp">
 
+        <ImageView
+            android:id="@+id/imagemUserDatails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/user_foto"
+            app:srcCompat="@drawable/nophoto" />
+
         <TextView
             android:id="@+id/textViewNome"
             android:layout_width="match_parent"

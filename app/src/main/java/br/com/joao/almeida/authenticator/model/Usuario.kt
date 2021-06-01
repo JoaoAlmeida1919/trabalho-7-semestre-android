@@ -3,19 +3,20 @@ package br.com.joao.almeida.authenticator.model
 import android.os.Parcel
 import android.os.Parcelable
 
-class Usuario(val nome: String?, val email: String?, val dataNacimento: String?) : Parcelable {
+class Usuario(val nome: String?, val email: String?, val dataNacimento: String?, var urlImage : String?) : Parcelable {
 
     constructor(parcel: Parcel) : this(
         parcel.readString(),
         parcel.readString(),
+        parcel.readString(),
         parcel.readString()
-    ) {
-    }
+    )
 
     public constructor() : this(
         "",
-    "",
-    ""
+        "",
+        "",
+        ""
     )
 
     override fun toString(): String {
@@ -32,6 +33,7 @@ class Usuario(val nome: String?, val email: String?, val dataNacimento: String?)
         parcel.writeString(nome)
         parcel.writeString(email)
         parcel.writeString(dataNacimento)
+        parcel.writeString(urlImage)
     }
 
     override fun describeContents(): Int {

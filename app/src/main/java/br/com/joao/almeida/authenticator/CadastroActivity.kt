@@ -104,7 +104,9 @@ class CadastroActivity : AppCompatActivity() {
         usuario = Usuario(
             editTextNome.text.toString(),
             editTextEmail.text.toString(),
-            editTextDataNascimento.text.toString())
+            editTextDataNascimento.text.toString(),
+        ""
+        )
         return true;
     }
 

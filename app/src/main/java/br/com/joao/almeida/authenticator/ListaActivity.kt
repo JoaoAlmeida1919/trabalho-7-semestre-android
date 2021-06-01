@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.ProgressBar
 import android.widget.Toast
+import br.com.joao.almeida.authenticator.adapter.UsuarioAdapter
 import br.com.joao.almeida.authenticator.model.Usuario
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
@@ -21,15 +22,13 @@ class ListaActivity : AppCompatActivity() {
     val EXTRA_USUARIO = "br.com.joao.almeida.authenticator.USUARIO"
     private lateinit var databaseReference : DatabaseReference
     private lateinit var listContact: ListView
-    private lateinit var adapter: ArrayAdapter<Usuario>
+    private  lateinit var adapter: UsuarioAdapter
     private  lateinit var spinner: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lista)
-        adapter = ArrayAdapter<Usuario>(this, android.R.layout.simple_list_item_1, ArrayList<Usuario>())
         listContact = findViewById(R.id.listViewUsuario)
-        listContact.adapter = adapter
         spinner = findViewById(R.id.progressBarList)
 
     }
@@ -41,6 +40,7 @@ class ListaActivity : AppCompatActivity() {
         listContact.setOnItemClickListener { parent, view, position, id ->
             abrirUsuarioDetalhe(adapter.getItem(id.toInt()))
         }
+        adapter = UsuarioAdapter(getBaseContext(),   ArrayList<Usuario>())
     }
 
     private fun adicionarObaservadores() {
@@ -50,6 +50,7 @@ class ListaActivity : AppCompatActivity() {
                 val usuario = dataSnapshot.getValue<Usuario>()
                 if(adapter.getPosition(usuario) == -1) {
                     adapter.add(usuario)
+                    listContact.adapter = UsuarioAdapter(getBaseContext(),  adapter.getList());
                 }
 
             }
@@ -63,6 +64,7 @@ class ListaActivity : AppCompatActivity() {
                 Log.d(TAG, "onChildRemoved:" + dataSnapshot.key!!)
                 val usuario = dataSnapshot.getValue(Usuario::class.java)
                 adapter.remove(usuario)
+                listContact.adapter = UsuarioAdapter(getBaseContext(),  adapter.getList());
             }
             override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
                 TODO("Not yet implemented")
@@ -88,6 +90,7 @@ class ListaActivity : AppCompatActivity() {
                    var usuario = usuarioSnapshot.getValue(Usuario::class.java)
                     if(adapter.getPosition(usuario) > -1) {
                         adapter.add(usuario)
+                        listContact.adapter = UsuarioAdapter(getBaseContext(),  adapter.getList());
                     }
                 }
             }

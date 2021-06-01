@@ -3,4 +3,5 @@
     <string name="page_contato_name">Contato</string>
     <string name="page_lista">Usuários</string>
     <string name="page_usuario_detalhe">Usuário</string>
+    <string name="user_foto">Foto de usuário</string>
 </resources>
